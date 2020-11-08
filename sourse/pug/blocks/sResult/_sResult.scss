@@ -1,0 +1,68 @@
+// start .sResult
+.sResult {
+
+	@include media-breakpoint-up(lg){
+		--sTPB: 0!important;
+		--sPT: #{rem(173px)};
+		--sPB: #{rem(100px)};
+	}
+
+	.container{
+		@include media-breakpoint-up(xl){
+			padding-left: 10px;
+		}
+	}
+	.section-title{
+		h2{
+			@include media-breakpoint-up(xl){
+				width: rem(478px);
+			}
+
+			font-size: rem(24);
+			@include media-breakpoint-up(sm){
+				font-size: rem(30);
+			}
+			@include media-breakpoint-up(md){
+				font-size: rem(36);
+			}
+			@include media-breakpoint-up(lg){
+				font-size: rem(40);
+			}
+			@include media-breakpoint-up(xl){
+				font-size: rem(50);
+			}
+
+			span{
+				color: $green;
+
+				@include media-breakpoint-between(sm,lg){
+					display: block;
+				}
+			}
+
+		}
+	}
+
+	&__list-col{
+
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			li{
+				@extend .yellow-list-frame;
+				line-height: 1.7;
+
+				padding-left: rem(30px);
+				margin-bottom: rem(14px);
+				@include media-breakpoint-up(lg){
+					padding-left: rem(35px);
+					margin-bottom: rem(14px);
+				}
+
+			}
+		}
+	}
+	//
+	&__{}
+} // end.sResult

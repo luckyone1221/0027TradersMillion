@@ -1,0 +1,30 @@
+mixin sSlider(data)
+	// start sSlider
+	+b.SECTION.sSlider.section#sSlider&attributes(attributes)
+		+e.bg
+		.container
+			+b.section-title
+				h2
+					| Вот что говорят ученики
+					|
+					br.d-none.d-sm-block
+					span Свилена Димитрова:
+			+e.slider
+				.swiper-container.feedback-slider-js
+					.swiper-wrapper
+						//-33
+						- for (var i = 1; i <= 6; i++)
+							+feedbackSlide(i)
+				+b.feedback-prev--js.d-none.d-lg-flex
+					//-+icon('')
+					img(loading="lazy" src="img/svg/chevron-prev.svg" alt="")
+				+b.feedback-next--js.d-none.d-lg-flex
+					//-+icon('chevron-next')
+					img(loading="lazy" src="img/svg/chevron-next.svg" alt="")
+				+b.feedback-pugin--js
+	// end sSlider
+
+mixin feedbackSlide(imgNum)
+	.swiper-slide
+		+e.img-link(href=`img/@2x/feedback-${imgNum}.png` data-fancybox="feedbackImgs")
+			img.swiper-lazy(src="#" data-src=`img/@2x/feedback-${imgNum}.png` alt="")

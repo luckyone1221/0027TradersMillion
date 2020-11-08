@@ -1,9 +1,27 @@
 mixin topLine()
 	// start topLine
 	+b.SECTION.topLine.section#topLine&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 topLine
-				
-			.row
+		+e.green-strip
+			img(src="img/svg/header-green-trapez.svg" alt="")
+		+e.container.container
+			+pic('owner.png')(class="topLine__owner")
+			+b.section-title
+				h1
+					| Получите профессию
+					|
+					br
+					| Форекс-трейдера
+					|
+					br
+					| и до
+					|
+					span 1&#160;000&#160;000&#160;$
+					|
+					br
+					| в управление
+			+e.UL.list
+				li Готовые прибыльные стратегии
+				li Наработка 10-летнего практического опыта за несколько дней
+				li Трудоустройство и получение инвесторского капитала в управление
+			+e.btn(href="#") Приступить к обучению
 	// end topLine

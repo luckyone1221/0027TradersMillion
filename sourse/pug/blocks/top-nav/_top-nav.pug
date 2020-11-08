@@ -1,27 +1,24 @@
 mixin mob-mnu()
-	-
-		//- let path = require('path');
-		//- let fs = require('fs');
-		//- var requestURL = 'top-nav.json';
-		//- var request = new XMLHttpRequest();
-		//- request.open('GET', requestURL);
-		//- request.responseType = 'json';
-		//- let dataJson = JSON.parse(json);
-	//- h1= dataJson['lala'] 
-	+b.toggle-menu-mobile--js.d-lg-none
-		span
 	+b.menu-mobile--js.d-lg-none
 		+b.toggle-menu-mobile--js
 			span
 		+e.inner
-		
+			+e.logo(href='/')
+				img(loading="lazy" src="img/svg/footer-logo.svg" alt="")
 			+mnu()
 			.text-right
 	//  мобильное меню
+
 mixin top-nav() 
 	// start top-nav
-	+b.top-nav.block-with-lazy
-		.container
-			+mnu()
-					
+	+b.top-nav--js.block-with-lazy
+		+e.container.container
+			+e.row
+				+e.logo(href="/")
+					img.img-svg-js(src="img/svg/logo.svg" alt="")
+				+e.menu.d-none.d-lg-block
+					+mnu()
+				+e.btn(href="#") Получить профессию
+				+b.toggle-menu-mobile--js.d-lg-none
+					span
 	// end top-nav

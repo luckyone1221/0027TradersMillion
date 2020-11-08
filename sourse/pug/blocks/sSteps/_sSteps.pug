@@ -1,0 +1,45 @@
+mixin sSteps(data)
+	// start sSteps
+	+b.SECTION.sSteps.section#sSteps&attributes(attributes)
+		.container
+			+b.section-title
+				h2
+					| Как стать участником тренинга
+					|
+					br.d-none.d-lg-block
+					| Инфо-ДВД и Свилена Димитрова
+					|
+					br.d-none.d-lg-block
+					span «Управляющий Форекс-трейдер»?
+			+e.row.row
+				+e.step.col-xl-4 Оставьте заявку на&nbsp;участие. Заполните форму и&nbsp;нажмите кнопку &laquo;Продолжить&raquo;.
+				+e.step.col-xl-4 Вам откроется страница с&nbsp;тарифами и&nbsp;доступными сейчас скидками
+				+e.step.col-xl-4 Если необходимо, Вас проконсультирует менеджер Инфо-ДВД по&nbsp;указанному Вами номеру телефона
+				+e.step.col-xl-4 Выберите тариф участия, оплатите его стоимость
+				+e.step.col-xl-4.offset-xl-4 Уже через одну минуту после оплаты Вам откроется доступ в&nbsp;закрытый раздел группы тренинга с&nbsp;обучающими материалами
+			+form()
+	// end sSteps
+
+mixin form()
+	+b.form
+		+form-wrap
+			+e.bg--1
+				img(loading="lazy" src="img/svg/form-bg-1.svg" alt="")
+			+e.bg--2
+				img(loading="lazy" src="img/svg/form-bg-2.svg" alt="")
+			+e.f-title
+				h4
+					| Успейте оставить заявку на участие
+					|
+					span в тренинге
+				p Введите свои данные прямо сейчас
+			+pic('form-book.png')(class="form-wrap__img")
+			+e.inputs
+				+input('Ваше имя', 'text', undefined, 'user_name')
+				+input('+7 ( ____ ) ____ - ___ - ___', 'tel')
+				+input('E-mail (необязательно)', 'email')
+				+e.BUTTON.btn(type="submit") Получить доступ
+		+e.polite.text-center
+			| Заполняя форму Вы соглашаетесь с условиями
+			|
+			a(href="#") пользовательского соглашения

@@ -40,10 +40,10 @@ mixin select(label,pl,...items)
 						option()= item
 
 //- wrapper for form
-mixin form-wrap(in)
+mixin form-wrap(hasContent)
 	+b.form-wrap&attributes(attributes)
 		form
-			if in
+			if hasContent
 				input(type='hidden',  name='example-input-field')
 				input(type='hidden', class="order", name='order', value=`Заявка  с сайта`) 
 				input(type="hidden" class='utm_source' name='utm_source')
@@ -62,15 +62,14 @@ mixin in-c(typ="checkbox", text, name= typ )
 			block 
 		else
 			+e.SPAN.text= text
- 
+
 mixin add-file(n)
 	+b.add-file
 		label
 			+e.INPUT.input(name='file', type='file')
 			+e.SPAN.btn 
 			+e.SPAN.text   Прикрепить резюме
-		+e.SPAN.filename 
-
+		+e.SPAN.filename
 
 mixin polite()
 	+e.polite

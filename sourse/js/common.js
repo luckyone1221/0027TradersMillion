@@ -213,9 +213,13 @@ const JSCCommon = {
 	},
 	animateScroll() {
 		// листалка по стр
-		$(" .top-nav li a, .scroll-link").click(function () {
+		$(".scroll-link").click(function () {
 			const elementClick = $(this).attr("href");
-			const destination = $(elementClick).offset().top;
+			let destination = $(elementClick).offset().top;
+
+			if (destination - 70 > 0){
+					destination = destination - 70;
+			}
 
 			$('html, body').animate({ scrollTop: destination }, 1100);
 
@@ -244,7 +248,7 @@ function eventHandler() {
 	// добавляет подложку для pixel perfect
 	var x = window.location.host;
 	let screenName;
-	screenName = 'main.jpg';
+	screenName = '01.png';
 	if (screenName && x === "localhost:3000") {
 		$(".footer").after(`<div class="pixel-perfect" style="background-image: url(screen/${screenName});"></div>`);
 	}
@@ -304,7 +308,101 @@ function eventHandler() {
 	});
 	// modal window
 
-	
+
+	//luckyone js
+
+	//img-svg
+	$('img.img-svg-js').each(function () {
+		var $img = $(this);
+		var imgClass = $img.attr('class');
+		var imgURL = $img.attr('src');
+		$.get(imgURL, function (data) {
+			// Get the SVG tag, ignore the rest
+			var $svg = $(data).find('svg'); // Add replaced image's classes to the new SVG
+
+			if (typeof imgClass !== 'undefined') {
+				$svg = $svg.attr('class', imgClass + ' replaced-svg');
+			} // Remove any invalid XML tags as per http://validator.w3.org
+
+			$svg = $svg.removeAttr('xmlns:a'); // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+
+			if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+				$svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'));
+			} // Replace image with new SVG
+
+
+			$img.replaceWith($svg);
+		}, 'xml');
+	});
+
+	//top nav
+	let topNav = document.querySelector('.top-nav--js');
+
+	if (topNav){
+		window.addEventListener('scroll', paintTopNav, {passive: true} );
+	}
+
+	function paintTopNav(){
+		//window.scrollY
+		if (window.scrollY > 20){
+			$(topNav).addClass('white');
+		}
+		else{
+			$(topNav).removeClass('white');
+		}
+	}
+
+	paintTopNav();
+	//feedback slider .feedback-slider-js
+	let feedBackSlider = new Swiper('.feedback-slider-js', {
+		spaceBetween: 30,
+		slidesPerView: 1,
+
+		//lazy
+		lazy: {
+			loadPrevNext: true,
+			loadPrevNextAmount: 3,
+		},
+
+		navigation: {
+			nextEl: '.feedback-next--js',
+			prevEl: '.feedback-prev--js',
+		},
+		pagination: {
+			el: '.feedback-pugin--js',
+			type: 'bullets',
+			clickable: true,
+		},
+
+	});
+	//sQusetions js
+	$('.q-item-js').click(function (){
+		let allItems = document.querySelectorAll('.q-item-js');
+		let self = this;
+
+		for (let item of allItems){
+			let currContent = item.querySelector('.q-content-js');
+
+			if (item === self){
+				$(item).toggleClass('active');
+				$(currContent).slideToggle(function (){
+					$(this).toggleClass('active');
+				});
+			}
+			else{
+				$(item).removeClass('active');
+				$(currContent).slideUp(function (){
+					$(this).removeClass('active');
+				});
+			}
+
+		}
+
+	});
+
+	//todo, remove later
+	//1 change sec title next to sSliders
+	//2 set normal amount of sliders in sSliders
 };
 if (document.readyState !== 'loading') {
 	eventHandler();
