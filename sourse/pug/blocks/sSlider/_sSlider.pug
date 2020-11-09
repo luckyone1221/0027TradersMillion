@@ -27,4 +27,6 @@ mixin sSlider(data)
 mixin feedbackSlide(imgNum)
 	.swiper-slide
 		+e.img-link(href=`img/@2x/feedback-${imgNum}.png` data-fancybox="feedbackImgs")
-			img.swiper-lazy(src="#" data-src=`img/@2x/feedback-${imgNum}.png` alt="")
+			picture
+				source.swiper-lazy(srcset="#" data-srcset=`img/@2x/feedback-${imgNum}.png` type="image/png" media="(min-width:576px)")
+				img.swiper-lazy(src="#" data-src=`img/@1x/feedback-${imgNum}.png` alt="")

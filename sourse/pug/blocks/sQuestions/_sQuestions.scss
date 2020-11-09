@@ -48,7 +48,7 @@
 				&:not(.active){
 					transform: scale(1.02);
 					.sQuestions__circle{
-						transform: translateX(-10px);
+						transform: translateX(-10px) rotate(90deg);
 					}
 				}
 			}
@@ -64,6 +64,9 @@
 					opacity: 0;
 				}
 			}
+
+
+
 		}
 	}
 	&__header{

@@ -21,7 +21,7 @@
 		<!-- Custom Browsers Color-->
 		<meta name="theme-color" content="#3361d8">
 		<link rel="stylesheet" href="libs/swiper/css/swiper.min.css"/>
-		<link rel="stylesheet" href="libs/@fancyapps/fancybox/jquery.fancybox.min.css"/>
+		<link rel="stylesheet" href="libs/@fancyapps/fancybox/jquery.fancybox.min.css"/><link rel="stylesheet" href="//infoclub.info/tools/api_subscriber/timer.css"/>
 		<link rel="stylesheet" href="css/main.min.css"/>
 	</head>
 	<body> 
@@ -150,7 +150,8 @@
 							<p>Сегодня действуют максимальные скидки на пакеты участия!</p>
 							<p>Скидка сгорит через:</p>
 						</div>
-						<div class="sTariffs__timer-box timer-box-js" data-forced-date="2020-12-21"><span class="days">12</span><span class="hours">20</span><span class="minutes">20</span><span class="seconds">20</span>
+						<div class="time__block">
+							<div class="idvd_timer autostart" data-redirect_url="" data-duration_hours="36.5"></div>
 						</div>
 					</div>
 				</div>
@@ -233,47 +234,108 @@
 					</p>
 					<p>Чтобы заказать звонок специалиста Инфо-ДВД, введите свои данные в&nbsp;форму ниже. Наши менеджеры в&nbsp;самый короткий срок перезвонят Вам по&nbsp;указанному номеру телефона.</p>
 				</div>
-				<div class="form">
-					<div class="form-wrap">
-						<form>
-							<div class="form-wrap__bg form-wrap__bg--1"><img loading="lazy" src="img/svg/form-bg-1.svg" alt=""/>
-							</div>
-							<div class="form-wrap__bg form-wrap__bg--2"><img loading="lazy" src="img/svg/form-bg-2.svg" alt=""/>
-							</div>
-							<div class="form-wrap__f-title">
-								<h4>
-									Успейте оставить заявку на участие
-									<span>в тренинге</span>
-								</h4>
-								<p>Введите свои данные прямо сейчас</p>
-							</div>
-							<!-- picture-->
-							<picture class="form-wrap__img"> 
-								<source srcset="img/@2x/webp/form-book.webp" type="image/webp" media="(min-width:576px)"/>
-								<source srcset="img/@1x/webp/form-book.webp" type="image/webp"/>
-								<source srcset="img/@2x/form-book.png" type="image/png" media="(min-width:576px)"/>
-								<source srcset="img/@1x/form-book.png" type="image/png"/>
-								<noscript class="loading-lazy"><img src="img/@2x/form-book.png" loading="lazy" alt=""/></noscript>
-							</picture>
-							<!-- /picture-->
-							<div class="form-wrap__inputs">
-								<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" type="text" placeholder="Ваше имя" name="user_name"/>
+				<div class="inbfrm v2" id="bf278">
+					<div id="bf278_inner">
+						<div class="title d-none">&Vcy;&acy;&shcy;&icy; &dcy;&acy;&ncy;&ncy;&ycy;&iecy;</div>
+						<form id="bf278_form" action="//info-dvd.ru/bbm/order/otcspeculationentry/?bform_id=278" method="POST" accept-charset="windows-1251" onsubmit="return bf278.check();">
+							<div class="form">
+								<div class="form__cont">
+									<div class="form__bg form__bg--1"><img loading="lazy" src="img/svg/form-bg-1.svg" alt=""/>
+									</div>
+									<div class="form__bg form__bg--2"><img loading="lazy" src="img/svg/form-bg-2.svg" alt=""/>
+									</div>
+									<div class="form__f-title">
+										<h4>
+											Успейте оставить заявку на участие
+											<span>в тренинге</span>
+										</h4>
+										<p>Введите свои данные прямо сейчас</p>
+									</div>
+									<!-- picture-->
+									<picture class="form__img"> 
+										<source srcset="img/@2x/webp/form-book.webp" type="image/webp" media="(min-width:576px)"/>
+										<source srcset="img/@1x/webp/form-book.webp" type="image/webp"/>
+										<source srcset="img/@2x/form-book.png" type="image/png" media="(min-width:576px)"/>
+										<source srcset="img/@1x/form-book.png" type="image/png"/><img src="img/@2x/form-book.png" loading="lazy" alt=""/>
+									</picture>
+									<!-- /picture-->
+									<div class="form__inputs">
+										<!--link(href='//info-dvd.ru/bbm/css/bbm_form.css?20201029' rel='stylesheet' type='text/css')-->
+										<input type="hidden" name="good_id" value="otcspeculationentry"/>
+										<input type="hidden" name="bform_id" value="278"/>
+										<input type="hidden" name="comment_author" value=""/>
+										<input type="hidden" name="comment_text" value=""/>
+										<div class="input_line input-wrap">
+											<input class="form-control text" name="fullname" type="text" value="" placeholder="Ваши ФИО" required="required"/>
+										</div>
+										<div class="input_line input-wrap">
+											<input class="form-control text" name="email" type="email" value="" placeholder="Ваш емэйл" required="required"/>
+										</div>
+										<div class="input_line input-wrap">
+											<input class="form-control text" name="phone" type="text" value="" placeholder="Ваш телефон" required="required"/>
+										</div>
+										<div class="submit_line input-wrap">
+											<input class="form-control button" type="submit" name="submit" value="Продолжить"/>
+										</div>
+										<script type="text/javascript">
+											(function (d, w, src, r, c) {
+												var rid = r.toString().substr(2);
+												var n = d.getElementsByTagName("script")[0], s = d.createElement("script"),
+																f = function () {
+																	n.parentNode.insertBefore(s, n);
+																};
+												var p = d.location.protocol;
+												if (p != 'http:' && p != 'https:' && src.indexOf('//') == 0) {
+													src = 'http:' + src
+												}
+												s.type = "text/javascript";
+												s.async = true;
+												s.src = src + (src.indexOf('?') == -1 ? '?' : '&') + 'r=' + rid;
+												if (w.opera == "[object Opera]") {
+													d.addEventListener("DOMContentLoaded", f, false);
+												} else {
+													f();
+												}
+												if (c) {
+													s.addEventListener('load', function (e) {
+														c(null, e);
+													}, false);
+												}
+											})(document, window, "//info-dvd.ru/bbm/js/bbm_form.js", Math.random(), function () {
+												window['bf278'] = new BbmFormMng({
+													id: 'bf278',
+													langs: {
+														errors: {
+															email_pattern: 'Введите корректный адрес электронной почты.',
+															alphanumeric_pattern: 'Может содержать только маленькие английские буквы и цифры',
+															phone_pattern: 'Некорректный формат телефона',
+															zip_pattern: 'Некорректный формат почтового индекса',
+															empty_field: 'Это поле необходимо заполнить.',
+															min_limit: 'Укажите значение не меньше ',
+															oferta_warn: 'Необходимо согласиться с условиями публичной оферты!'
+														},
+														processing: 'Обработка...'
+													}, rules: {
+														kupon: ['alphanumeric'],
+														phone: ['phone', 'required'],
+														email: ['required', 'email'],
+														fullname: ['required']
+													},
+													phone_verification: true
+												});
+											});
+										</script>
+									</div>
 								</div>
-								<!-- +e.input-wrap-->
-								<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" type="tel" placeholder="+7 ( ____ ) ____ - ___ - ___" name="tel"/>
+								<div class="form__polite text-center">
+									<div class="privacy_agreement_block">
+										<label>
+											<input type="checkbox" name="oferta_warn" value="1" checked="checked" required="required"/><span class="ibfm_txt">&YAcy; &scy;&ocy;&gcy;&lcy;&acy;&scy;&iecy;&ncy; &scy; &ucy;&scy;&lcy;&ocy;&vcy;&icy;&yacy;&mcy;&icy;</span><span></span><a href="javascript:void(0)" onclick="return window['bf278'].popup('https://info-dvd.ru/bbm/../../oferta?popup=1', 'win', 1050, 450); return false;">&pcy;&ucy;&bcy;&lcy;&icy;&chcy;&ncy;&ocy;&jcy; &ocy;&fcy;&iecy;&rcy;&tcy;&ycy;</a>
+										</label>
+									</div>
 								</div>
-								<!-- +e.input-wrap-->
-								<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" type="email" placeholder="E-mail (необязательно)" name="email"/>
-								</div>
-								<!-- +e.input-wrap-->
-								<button class="form-wrap__btn" type="submit">Получить доступ
-								</button>
 							</div>
 						</form>
-					</div>
-					<div class="form__polite text-center">
-						Заполняя форму Вы соглашаетесь с условиями
-						<a href="#">пользовательского соглашения</a>
 					</div>
 				</div>
 			</div>
@@ -284,18 +346,26 @@
 				<div class="footer__row row">
 					<div class="col-9 col-lg-5">
 						<div class="footer__publisher-txt">
-							<p class="set-footer-date-js">2008—<span class="year">2020</span> © издательство Info-DVD.Ru</p>
-							<p>
-								Проект
-								<a href="#">«Инфоклуб»</a>
-							</p>
+							<p class="set-footer-date-js"><span>
+									<script>
+										function InfoDVDCurrentYear(year) {
+											var cur = new Date();
+											if (cur.getFullYear() != year)
+												document.write(year + '&mdash;' + cur.getFullYear());
+											else document.write(year);
+										}
+										
+										InfoDVDCurrentYear('2008');
+									</script>	 © издательство
+									</span><a href="//www.info-dvd.ru/?utm_source=footer_link" target="_blank">Info-DVD.Ru</a></p>
+							<p><a href="//www.infoclub.info/" target="_blank">Проект «Инфоклуб»</a></p>
 							<p>ОГРНИП 316183200118945</p>
 						</div>
 						<nav class="footer__menu">
 							<ul>
-								<li><a href="http://info-dvd.ru/partnership?utm_source=footer_link&amp;utm_medium=sales_letter&amp;utm_campaign=footer_template_link">партнёрская программа</a></li>
-								<li><a href="http://info-dvd.ru/pages/privacy">политика конфиденциальности</a></li>
-								<li><a href="http://info-dvd.ru/pages/risk-warning">предупреждение о рисках</a></li>
+								<li><a href="//info-dvd.ru/about/partnership" target="_blank" title="партнёрская программа">партнёрская программа</a></li>
+								<li><a href="//info-dvd.ru/pages/privacy" target="_blank" title="политика конфиденциальности">политика конфиденциальности</a></li>
+								<li><a href="//info-dvd.ru/pages/risk-warning" target="_blank" title="предупреждение о рисках">  предупреждение о рисках</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -307,17 +377,18 @@
 						<div class="footer__support">
 							<div class="footer__bold-txt">Служба поддержки:
 							</div>
-							<div class="footer__inline-links"><a href="https://info.support-desk.ru/form"><span>Задать свой вопрос</span></a><a class="ancor-js" href="#sFAQ"><span>Частые вопросы и ответы на них</span></a>
+							<div class="footer__inline-links"><a href="//info.support-desk.ru/form" target="_blank" title="Задать свой вопрос"><span>Задать свой вопрос</span></a><a href="//info.support-desk.ru/?base=1" title="Частые вопросы и ответы на них" target="_blank"><span>Частые вопросы и ответы на них</span></a>
 							</div>
 						</div>
 						<div class="footer__callback">
 							<div class="footer__bold-txt">Позвоните нам:
 							</div>
-							<div class="footer__inline-links"><a href="tel:88005550721">8 (800) 555-07-21</a><a href="tel:+74995530974">+7 (499) 553-09-74</a>
+							<div class="footer__inline-links">
+								<script src="//info-dvd.ru/codes/js/telephone-number.js"></script>
 							</div>
 							<div class="footer__callback-txt">
 								или
-								<a href="http://info-dvd.ru/support/apply/">оставьте свой номер и мы вам перезвоним</a>
+								<a href="http://info-dvd.ru/support/apply/" target="_blank">оставьте свой номер и мы вам перезвоним</a>
 							</div>
 						</div>
 					</div>
@@ -349,14 +420,15 @@
 		<!-- #modal-call-->
 		<!-- end modals--><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 		<script src="libs/loading-attribute-polyfill/loading-attribute-polyfill.min.js"></script>
-		<script src="libs/jquery/jquery.min.js"></script>
+		<script src="js/jquery-2.2.4.min.js"></script>
+		<script src="//info-dvd.ru/tools/lead_box/lead_box.js?2"></script>
+		<script src="//info-dvd.ru/codes/js/legal.utf8.js"></script><script   src="//infoclub.info/tools/api_subscriber/timer_universal.js?3"></script>
 		<!-- modal libs-->
 		<script src="libs/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
 		<!-- modal libs-->
 		<!-- slider libs-->
 		<script src="libs/swiper/js/swiper.min.js"></script>
 		<!-- /slider libs-->
-		<script src="libs/inputmask/inputmask.min.js"></script>
 		<script src="js/common.js"></script>
 	</body>
 </html>

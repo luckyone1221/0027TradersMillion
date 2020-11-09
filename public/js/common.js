@@ -128,91 +128,12 @@ var JSCCommon = {
 		}
 	},
 	// /mobileMenu
-	// табы  .
-	tabscostume: function tabscostume(tab) {
-		var tabs = {
-			Btn: [].slice.call(document.querySelectorAll(".".concat(tab, "__btn"))),
-			BtnParent: [].slice.call(document.querySelectorAll(".".concat(tab, "__caption"))),
-			Content: [].slice.call(document.querySelectorAll(".".concat(tab, "__content")))
-		};
-		tabs.Btn.forEach(function (element, index) {
-			element.addEventListener('click', function () {
-				if (!element.classList.contains('active')) {
-					var siblings = element.parentNode.querySelector(".".concat(tab, "__btn.active"));
-					var siblingsContent = tabs.Content[index].parentNode.querySelector(".".concat(tab, "__content.active"));
-					siblings.classList.remove('active');
-					siblingsContent.classList.remove('active');
-					element.classList.add('active');
-					tabs.Content[index].classList.add('active');
-				}
-			});
-		}); // $('.' + tab + '__caption').on('click', '.' + tab + '__btn:not(.active)', function (e) {
-		// 	$(this)
-		// 		.addClass('active').siblings().removeClass('active')
-		// 		.closest('.' + tab).find('.' + tab + '__content').hide().removeClass('active')
-		// 		.eq($(this).index()).fadeIn().addClass('active');
-		// });
-	},
-	// /табы
-	inputMask: function inputMask() {
-		// mask for input
-		var InputTel = [].slice.call(document.querySelectorAll('input[type="tel"]'));
-		InputTel.forEach(function (element) {
-			element.setAttribute("pattern", "[+][0-9]{1}[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}");
-		});
-		Inputmask("+9(999)999-99-99").mask(InputTel);
-	},
-	// /inputMask
 	ifie: function ifie() {
 		var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
 		if (isIE11) {
 			$("body").after('<div class="browsehappy">	<p class=" container">К сожалению, вы используете устаревший браузер. Пожалуйста, <a href="http://browsehappy.com/" target="_blank">обновите ваш браузер</a>, чтобы улучшить производительность, качество отображаемого материала и повысить безопасность.</p></div>');
 		}
-	},
-	sendForm: function sendForm() {
-		var gets = function () {
-			var a = window.location.search;
-			var b = new Object();
-			var c;
-			a = a.substring(1).split("&");
-
-			for (var i = 0; i < a.length; i++) {
-				c = a[i].split("=");
-				b[c[0]] = c[1];
-			}
-
-			return b;
-		}(); // form
-
-
-		$("form").submit(function (e) {
-			e.preventDefault();
-			var th = $(this);
-			var data = th.serialize();
-			th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
-			th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
-			th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
-			th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
-			$.ajax({
-				url: 'action.php',
-				type: 'POST',
-				data: data
-			}).done(function (data) {
-				$.fancybox.close();
-				$.fancybox.open({
-					src: '#modal-thanks',
-					type: 'inline'
-				}); // window.location.replace("/thanks.html");
-
-				setTimeout(function () {
-					// Done Functions
-					th.trigger("reset"); // $.magnificPopup.close();
-					// ym(53383120, 'reachGoal', 'zakaz');
-					// yaCounter55828534.reachGoal('zakaz');
-				}, 4000);
-			}).fail(function () {});
-		});
 	},
 	heightwindow: function heightwindow() {
 		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -257,22 +178,9 @@ function eventHandler() {
 
 	JSCCommon.ifie();
 	JSCCommon.modalCall();
-	JSCCommon.tabscostume('tabs');
 	JSCCommon.mobileMenu();
-	JSCCommon.inputMask();
-	JSCCommon.sendForm();
 	JSCCommon.heightwindow();
-	JSCCommon.animateScroll(); // JSCCommon.CustomInputFile();
-	// добавляет подложку для pixel perfect
-
-	var x = window.location.host;
-	var screenName;
-	screenName = '02.png';
-
-	if (screenName && x === "localhost:3000") {
-		$(".footer").after("<div class=\"pixel-perfect\" style=\"background-image: url(screen/".concat(screenName, ");\"></div>"));
-	} // /добавляет подложку для pixel perfect
-
+	JSCCommon.animateScroll();
 
 	function whenResize() {
 		var topH = $("header ").innerHeight();
@@ -409,74 +317,13 @@ function eventHandler() {
 		} finally {
 			_iterator.f();
 		}
-	}); //tikTak
+	}); //menu fix
 
-	function tikTak(parentQselector) {
-		//html elements
-		var parent = document.querySelector(parentQselector);
-		if (!parent) return;
-		var days = parent.querySelector('.days');
-		var hours = parent.querySelector('.hours');
-		var minutes = parent.querySelector('.minutes');
-		var seconds = parent.querySelector('.seconds'); //date elements
-
-		var now = new Date(); // d === days.innerHtml + now.getDate... others the same way
-
-		var d = getTime(days, now.getDate());
-		var h = getTime(hours, now.getHours());
-		var m = getTime(minutes, now.getMinutes());
-		var s = getTime(seconds, now.getSeconds()); //let targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s);
-		//force date
-
-		var targetDate;
-		var date = parent.getAttribute('data-forced-date');
-
-		if (date) {
-			targetDate = new Date(date);
-		} else {
-			targetDate = new Date(2020, 11, 21);
-		} //interval
-
-
-		tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
-		var ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
-	}
-
-	tikTak('.timer-box-js'); //additional funcs to tikTak
-
-	function tikTakReadOut(parent, targetDate, ReadOutID, days, hours, minutes, seconds) {
-		var now = new Date();
-		var timeLeft = (targetDate - now) / 1000;
-
-		if (timeLeft < 1) {
-			window.clearInterval(ReadOutID); //to do something after timer ends
-
-			$(parent).fadeOut();
-		}
-
-		days.innerHTML = Math.floor(timeLeft / 60 / 60 / 24);
-		timeLeft = (timeLeft / 60 / 60 / 24 - Math.floor(timeLeft / 60 / 60 / 24)) * 60 * 60 * 24;
-		hours.innerHTML = Math.floor(timeLeft / 60 / 60);
-		timeLeft = (timeLeft / 60 / 60 - Math.floor(timeLeft / 60 / 60)) * 60 * 60;
-		minutes.innerHTML = Math.floor(timeLeft / 60);
-		timeLeft = (timeLeft / 60 - Math.floor(timeLeft / 60)) * 60;
-		seconds.innerHTML = Math.floor(timeLeft);
-	}
-
-	function getTime(htmlEl, currentTimeItem) {
-		var timeItem = Number(htmlEl.innerHTML);
-
-		if (timeItem) {
-			timeItem += currentTimeItem;
-		} else {
-			timeItem = currentTimeItem;
-		}
-
-		return timeItem;
-	} //todo, remove later
+	$('.scroll-link').click(function () {
+		JSCCommon.closeMenu();
+	}); //todo, remove later
 	//1 change sec title next to sSliders
 	//2 set normal amount of sliders in sSliders
-
 }
 
 ;

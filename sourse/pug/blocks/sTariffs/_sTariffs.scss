@@ -442,3 +442,61 @@
 	}
 
 }
+
+//new timer
+.time__block{
+	display: inline-flex;
+	width: auto;
+	.tmr_el{
+		//background-color: red!important;
+		width: auto;
+		position: relative;
+		margin-right: rem(18);
+		&:before{
+			content: ':';
+			position: absolute;
+			left: 100%;
+			top: 0;
+			height: auto;
+			width: rem(18);
+
+			//
+			display: flex;
+			text-align: center;
+			justify-content: center;
+			align-items: center;
+
+			//font-family: $gotham-pro;
+			font-size: rem(40);
+			color: $white;
+		}
+
+		&:first-child:before, &:last-child:before{
+			content: none;
+		}
+
+	}
+	.tmr_el_val{
+		width: rem(68);
+		height: rem(68);
+		line-height: rem(68);
+		font-size: rem(30);
+		@include media-breakpoint-up(sm){
+			width: rem(72);
+			height: rem(72);
+			line-height: rem(72);
+			font-size: rem(30);
+		}
+
+		background: $white;
+		border-radius: rem(10px);
+		color: $green;
+		font-weight: bold;
+		padding: 0;
+
+	}
+	.tmr_el_unit{
+
+	}
+
+}

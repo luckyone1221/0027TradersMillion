@@ -115,7 +115,8 @@ $h: em(2);
 		left: 0;
 		right: auto;
 		color: #FFF;
-		top: 10px;
+		//top: 10px;
+		top: 4px;
 		z-index: 9999;
 		background-color: transparent;
 
@@ -177,6 +178,7 @@ $h: em(2);
 			padding: rem(8) rem(15);
 
 			color: $body-color;
+
 			font-weight: 600;
 		}
 	}
