@@ -1,0 +1,87 @@
+mixin sTariffs()
+	// start sTariffs
+	+b.SECTION.sTariffs.section#sTariffs&attributes(attributes)
+		+e.bg
+		+e.bg-img--1
+			img(loading="lazy" src="img/svg/tarif-top-bg.svg" alt="")
+		+e.bg-img--2
+			img(loading="lazy" src="img/svg/tarif-bot-bg.svg" alt="")
+		.container
+			+b.section-title
+				h1
+					| Выберите удобный пакет
+					|
+					br.d-none.d-sm-block
+					span участия в тренинге
+			+e.table-row.row
+				+priceTableHeader('Эконом', 'Мастер', 'VIP')
+				+priceTableLine('Основная программа тренинга, 6 блоков. Видеоуроки, онлайн-занятия, записи занятий и методические материалы – безлимитный доступ')
+				+priceTableLineBg('Поддержка и обратная связь от автора в группе и на онлайн-занятиях во время проведения тренинга')
+				+priceTableLine('Мастер-группа Свилена Димитрова. Онлайн-занятия, поддержка и записи занятий', '-', '3 месяца', '3 месяца')
+				+priceTableLineBg('Подарок. Безлимитная официальная лицензия Forex Simulator, стоимостью 99$', '-' , '+' ,'+')
+				+priceTableLine('Подарок. Доступ к записям и всем материалам тренинга «Трейдинг со Свиленом»', '-' , '+' ,'+')
+				+priceTableLineBg('Супер-бонус! Возможность личной поддержки автора во время практики*', '-' , '+' ,'+')
+				+priceTableLine('Супер-бонус! Возможность личных консультаций с автором после окончания тренинга*', '-' , '+' ,'+')
+				+priceTableLineBg('Личное наставничество Свилена Димитрова в скайпе. Поддержка в практике на рынке и личная помощь в получении капитала в управление', '-' , '-' ,'4 месяца')
+				+strokedLine('Базовая цена пакета', '23 000' , '33 000' ,'140 000')
+				+priceTableLineBg('Ваша цена сегодня', '18 000' , '25 000' ,'60 000')
+				+priceTableFooter('Выбрать Эконом', 'Выбрать Мастер', 'Выбрать VIP')
+			+e.timer-row.row
+				.col-lg-6
+					+e.timer-headline ПОЛУЧИТЕ ДОСТУП ПРЯМО СЕЙЧАС!
+					+e.timer-txt Доступ к материалам I части тренинга будет открыт Вам через одну минуту после оплаты.
+				+e.timer-col.col
+					+e.timer-top-txt
+						p Сегодня действуют максимальные скидки на пакеты участия!
+						p Скидка сгорит через:
+					+e.timer-box.timer-box-js(data-forced-date='2020-12-21')
+						span.days 12
+						span.hours 20
+						span.minutes 20
+						span.seconds 20
+			+e.lower-txt *Личная поддержка и консультации от Свилена Димитрова проводятся путем созвона в скайпе не чаще чем 1 раз в месяц, при условии предоставления отчетов о практических действиях на рынке и журнала сделок.
+
+	// end sTariffs
+
+mixin priceTableHeader(base='base',master='master', VIP='VIP')
+	+e.item-txt-col.col-md-6.col-12.header-txt-col.d-none.d-md-block
+	+e.val-col.col-md-2.col-4.base-col.header-col=base
+	+e.val-col.col-md-2.col-4.master-col.header-col.active=master
+	+e.val-col.col-md-2.col-4.vip-col.header-col=VIP
+
+
+	//-priceTableLine
+mixin priceTableLine(headline='headline', base='+',master='+', VIP='+')
+	+e.item-txt-col.col-md-6.col-12=headline
+	+e.val-col.col-md-2.col-4=base
+	+e.val-col.col-md-2.col-4=master
+	+e.val-col.col-md-2.col-4=VIP
+
+mixin priceTableLineBg(headline='headline', base='+',master='+', VIP='+')
+	+e.item-txt-col.col-md-6.col-12.painted=headline
+	+e.val-col.col-md-2.col-4.painted=base
+	+e.val-col.col-md-2.col-4.painted=master
+	+e.val-col.col-md-2.col-4.painted=VIP
+
+	//-strokedLine
+mixin strokedLine(headline='headline', base='+',master='+', VIP='+')
+	+e.item-txt-col.col-md-6.col-12=headline
+	+e.val-col.col-md-2.col-4.stroked=base
+	+e.val-col.col-md-2.col-4.stroked=master
+	+e.val-col.col-md-2.col-4.stroked=VIP
+
+mixin strokedLineBg(headline='headline', base='+',master='+', VIP='+')
+	+e.item-txt-col.col-md-6.col-12.painted=headline
+	+e.val-col.col-md-2.col-4.stroked.painted=base
+	+e.val-col.col-md-2.col-4.stroked.painted=master
+	+e.val-col.col-md-2.col-4.stroked.painted=VIP
+
+	//-
+mixin priceTableFooter(base='base',master='master', VIP='VIP')
+	+e.item-txt-col.col-md-6.col-12.footer-txt-col.d-none.d-md-block
+	+e.val-col.col-md-2.col-4.footer-col
+		+e.A.chose-btn(href="#")=base
+	+e.val-col.col-md-2.col-4.footer-col
+		+e.A.chose-btn(href="#")=master
+	+e.val-col.col-md-2.col-4.footer-col
+		+e.A.chose-btn(href="#")=VIP
