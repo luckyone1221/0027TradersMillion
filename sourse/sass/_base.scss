@@ -31,6 +31,10 @@ html {
 
 
 body {
+	& > a:last-of-type{
+		display: none;
+	}
+
 	max-width: 100vw;
 	overflow-x: hidden;
 
