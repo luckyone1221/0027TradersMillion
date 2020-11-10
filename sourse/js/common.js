@@ -263,7 +263,7 @@ function eventHandler() {
 		//lazy
 		lazy: {
 			loadPrevNext: true,
-			loadPrevNextAmount: 3,
+			loadPrevNextAmount: 2,
 		},
 
 		navigation: {
